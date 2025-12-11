@@ -1,153 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbon Pricing: A Scalable Climate Solution</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0b0f10;
-            color: #e8e8e8;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <title>Fair Carbon Pricing - AP Lang Synthesis Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --card: #020617;
+      --border: rgba(148, 163, 184, 0.3);
+    }
 
-        header {
-            background-color: #0f1416;
-            padding: 60px 30px;
-            text-align: center;
-            border-bottom: 3px solid #2cd4c6;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            color: #2cd4c6;
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-        h2 {
-            color: #2cd4c6;
-            margin-top: 40px;
-        }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-        .section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .card {
-            background-color: #12181a;
-            padding: 20px;
-            border-left: 4px solid #2cd4c6;
-            margin-bottom: 20px;
-            border-radius: 6px;
-        }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
 
-        a {
-            color: #2cd4c6;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background-color: #0f1416;
-            color: #7f8c8d;
-            border-top: 2px solid #2cd4c6;
-        }
-    </style>
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .brand-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero {
+      margin-top: 1.75rem;
+      margin-bottom: 2.25rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-main-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+    }
+
+    .hero-card-main-number {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--accent);
+    }
+
+    .hero-card-caption {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-chip {
+      font-size: 0.72rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-soft);
+    }
+
+    .glow-orb {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent);
+      top: -60px;
+      right: -60px;
+      pointer-events: none;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .section-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 1.25rem;
+      padding: 1.4rem 1.5rem 1.6rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 0.8rem 0 0.3rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 0.45rem;
+    }
+
+    .muted {
+      color: var(--text-soft);
+    }
+
+    ul {
+      margin: 0.3rem 0 0.8rem 1.1rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    li + li {
+      margin-top: 0.25rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .highlight-box {
+      border-radius: 1rem;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(
+        145deg,
+        rgba(56, 189, 248, 0.1),
+        rgba(15, 23, 42, 0.9)
+      );
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-top: 0.8rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-soft);
+    }
+
+    .cta {
+      margin-top: 2rem;
+      margin-bottom: 2.3rem;
+    }
+
+    .cta-inner {
+      background: radial-gradient(circle at top left, #1d283a 0, #020617 55%);
+      border-radius: 1.4rem;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .cta h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta p {
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+      width: fit-content;
+    }
+
+    .works-list {
+      list-style: none;
+      margin-left: 0;
+      font-size: 0.86rem;
+    }
+
+    .works-list li + li {
+      margin-top: 0.45rem;
+    }
+
+    footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 1rem;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-title">Fair Carbon Pricing</div>
+        <div class="brand-subtitle">AP Lang Synthesis Project - Climate Solutions</div>
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#solution">Solution</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#counterargument">Counterargument</a>
+        <a href="#action">Call to Action</a>
+        <a href="#works-cited">Works Cited</a>
+      </nav>
+    </header>
 
-<header>
-    <h1>Carbon Pricing: A Practical and Scalable Climate Solution</h1>
-    <p>
-        This website presents a research-backed argument on why carbon pricing is one of the most effective and realistic
-        tools for reducing global greenhouse gas emissions. The project synthesizes findings from multiple credible sources
-        and evaluates both benefits and criticisms.
-    </p>
-</header>
+    <main>
+      <section class="hero" id="overview">
+        <div>
+          <div class="hero-pill">Creative Climate Solution - Carbon Pricing With a Purpose</div>
+          <h1 class="hero-main-title">
+            Make pollution visible.  
+            <span class="hero-highlight">Price carbon fairly, and return the revenue to communities.</span>
+          </h1>
+          <p class="hero-tagline">
+            Our argument: the most realistic and powerful solution to climate change right now is a
+            fair, gradually rising carbon price that covers most fossil fuel use and returns the
+            revenue to people and communities. When designed well, carbon pricing cuts emissions,
+            sparks clean energy innovation, and protects low income households instead of punishing
+            them.
+          </p>
+          <div class="hero-meta">
+            <span>Focus - Carbon taxes and cap and trade systems</span>
+            <span>Goal - Rapid but fair emissions cuts</span>
+          </div>
+        </div>
 
-<div class="section">
-    <h2>Thesis</h2>
-    <div class="card">
-        Carbon pricing is a practical and effective climate solution because it directly reduces emissions, generates revenue for 
-        sustainable programs, and encourages long-term investment in cleaner technologies. When designed well, it remains fair, 
-        economically stable, and widely adaptable across different regions.
-    </div>
-</div>
+        <aside class="hero-card" aria-label="Key statistic about carbon pricing">
+          <div class="glow-orb"></div>
+          <h3>Why carbon pricing matters</h3>
+          <div class="hero-card-main-number">$95 billion</div>
+          <p class="hero-card-caption">
+            Governments raised about 95 billion US dollars in 2022 from carbon taxes and emissions
+            trading systems, and these policies now cover about 23 percent of global greenhouse gas
+            emissions (World Bank, 2023).
+          </p>
+          <p class="muted">
+            A recent systematic review of 21 real world carbon pricing schemes finds that they cut
+            emissions by roughly 5 to 21 percent in the early years after they are introduced
+            (Dobbeling-Hildebrandt et al., 2024).
+          </p>
+          <div class="hero-chip-row">
+            <span class="hero-chip">Real world policy, not theory</span>
+            <span class="hero-chip">Revenue can fund climate action</span>
+            <span class="hero-chip">Works alongside other solutions</span>
+          </div>
+        </aside>
+      </section>
 
-<div class="section">
-    <h2>Evidence from Research</h2>
+      <section id="solution" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Proposed Solution: A Fair, Rising Carbon Price With Dividends</h2>
+          <span class="section-tag">Solution</span>
+        </div>
+        <p>
+          Climate change is a textbook example of a market failure. The price of fossil fuels does
+          not include the real damage from pollution, like heat waves, crop losses, and health
+          impacts. Carbon pricing fixes that problem by putting a clear price on each ton of carbon
+          dioxide and letting businesses and households decide how to respond.
+        </p>
+        <p>
+          We argue for a hybrid system: a carbon price that starts modestly, rises on a predictable
+          schedule, covers most fossil fuels at the point they enter the economy, and returns a
+          large share of the revenue directly to people as a dividend. The rest of the money should
+          fund clean energy, public transit, and support for workers in fossil fuel industries.
+        </p>
 
-    <div class="card">
-        A 2023 World Bank report shows that carbon pricing revenues have reached nearly 100 billion dollars globally. 
-        These funds can support renewable energy development, infrastructure upgrades, and climate adaptation efforts.
-    </div>
+        <div class="grid-2">
+          <div>
+            <h3>How the policy would work</h3>
+            <ul>
+              <li>
+                Apply a carbon price "upstream" where fossil fuels enter the economy, such as at
+                refineries and import points, to cover a broad share of emissions (Metcalf).
+              </li>
+              <li>
+                Start with a price that is politically realistic, then raise it on a public schedule
+                so that businesses can plan long term investments (Brookings; C2ES).
+              </li>
+              <li>
+                Attach the price to the social cost of carbon, which estimates the dollar damage
+                from one extra ton of emissions and keeps the policy grounded in science (Stanford).
+              </li>
+              <li>
+                Use border carbon adjustments so that imported goods pay a similar carbon price,
+                which reduces the risk that companies simply shift pollution abroad (Kumar).
+              </li>
+            </ul>
+          </div>
 
-    <div class="card">
-        A 2024 Nature Communications meta-analysis evaluated 80 studies and found that carbon pricing programs achieved 
-        measurable emission reductions ranging from five to twenty-one percent across seventeen different systems. 
-        This confirms that carbon pricing works across a variety of economies and policy structures.
-    </div>
+          <div>
+            <h3>Why this approach is effective and fair</h3>
+            <ul>
+              <li>
+                A meta analysis of 80 ex post evaluations finds that introducing carbon pricing
+                policies has led to statistically significant emission cuts in at least 17 schemes,
+                with reductions in the range of 5 to 21 percent in the early years (Dobbeling-Hildebrandt
+                et al., 2024).
+              </li>
+              <li>
+                A World Bank review of global carbon pricing highlights that these policies not only
+                cut emissions but also raise revenue that can support development and clean
+                technology, especially when paired with other policies.
+              </li>
+              <li>
+                Economists note that both carbon taxes and cap and trade can reach the same goal if
+                they are designed well, and that predictable prices send strong signals to
+                investors (Metcalf; CAPABLE project summary).
+              </li>
+              <li>
+                Returning revenue to households as a climate dividend offsets higher energy prices
+                for low and middle income families and increases policy stability.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-    <div class="card">
-        Research also shows that predictable carbon pricing helps businesses plan long-term investments in cleaner 
-        technologies because it creates clear financial incentives to reduce emissions.
-    </div>
-</div>
+        <div class="highlight-box">
+          <strong>Thesis:</strong>
+          A fair, gradually rising carbon price with broad coverage and smart use of revenue is one
+          of the most powerful tools available to cut greenhouse gas emissions quickly while still
+          protecting vulnerable communities and allowing economic growth.
+        </div>
+      </section>
 
-<div class="section">
-    <h2>Counterargument and Rebuttal</h2>
+      <section id="evidence" class="section-card" style="margin-top: 1.7rem;">
+        <div class="section-header">
+          <h2 class="section-title">Evidence: Carbon Pricing Already Works</h2>
+          <span class="section-tag">Evidence</span>
+        </div>
 
-    <div class="card">
-        Some critics argue that carbon pricing may place unfair burdens on lower-income communities or lead to uneven 
-        responsibility between countries. These concerns are valid, especially given global inequality in emissions contributions.
-    </div>
+        <h3>1. Global trends show growing adoption and revenue</h3>
+        <p>
+          The World Bank's State and Trends of Carbon Pricing report finds that the number of carbon
+          pricing instruments has grown to 73 worldwide, covering about 23 percent of global
+          emissions and raising around 95 billion US dollars in 2022. This matters because it shows
+          that carbon pricing is already a central policy tool, not a theoretical idea.
+        </p>
 
-    <div class="card">
-        However, studies show that carbon pricing remains fair and effective when revenue is used responsibly. 
-        Governments can return funds to households, invest in public transportation, or reduce other taxes. 
-        This prevents financial hardship while strengthening support for the policy. Evidence also shows that 
-        carbon pricing can be implemented upstream, reducing consumer impact.
-    </div>
-</div>
+        <h3>2. Meta analysis finds consistent emission reductions</h3>
+        <p>
+          A 2024 Nature Communications study systematically reviewed 80 evaluations of carbon
+          pricing schemes and harmonized 483 effect sizes. The researchers found that most carbon
+          pricing programs caused measurable emission cuts soon after implementation, typically in
+          the range of 5 to 21 percent. Even after adjusting for publication bias, the average
+          effect still shows meaningful reductions. This directly answers critics who claim that
+          carbon pricing does not work at scale.
+        </p>
 
-<div class="section">
-    <h2>Solutions Supported by Carbon Pricing</h2>
+        <h3>3. Design choices matter more than labels</h3>
+        <p>
+          Both Metcalf’s analysis and findings from the CAPABLE project show that the effectiveness
+          of carbon pricing depends less on whether a system is a tax or cap and trade, and more on
+          how strong, predictable, and well designed the policy is. Factors like rising price paths,
+          broad coverage, and complementary clean energy policies are what determine success.
+        </p>
 
-    <div class="card">
-        Carbon pricing gives governments the financial ability to scale renewable energy, expand energy efficiency programs, 
-        and support climate-resilient infrastructure. Nearly 100 billion dollars in annual revenue already supports these solutions.
-    </div>
+        <h3>4. Carbon pricing influences everyday decisions</h3>
+        <p>
+          A George Mason University explainer highlights that carbon pricing works because it makes
+          pollution visible. When emissions have a clear price, every energy related decision, from
+          transportation to electricity use, carries an incentive to choose cleaner alternatives.
+          Combined with dividends or revenue recycling, the policy can promote climate justice as
+          well as efficiency.
+        </p>
 
-    <div class="card">
-        Businesses respond to price signals by reducing emissions, improving efficiency, and investing in cleaner technologies. 
-        Predictable pricing schedules make it easier for industries to transition without economic instability.
-    </div>
-</div>
+        <div class="badge-row">
+          <span class="badge">Real world data</span>
+          <span class="badge">Global studies</span>
+          <span class="badge">Policy and economics</span>
+        </div>
+      </section>
 
-<div class="section">
-    <h2>Call to Action</h2>
+      <section id="counterargument" class="section-card" style="margin-top: 1.7rem;">
+        <div class="section-header">
+          <h2 class="section-title">Counterargument and Rebuttal</h2>
+          <span class="section-tag">Counterargument</span>
+        </div>
 
-    <div class="card">
-        Communities, schools, and local governments can advocate for transparent and well-designed carbon pricing programs. 
-        Supporting public education, promoting climate literacy, and encouraging political engagement all help strengthen 
-        the push for effective climate policy.
-    </div>
+        <div class="grid-2">
+          <div>
+            <h3>Counterargument: Carbon pricing is unfair or too weak</h3>
+            <p>
+              Critics argue that carbon pricing is regressive because higher energy costs
+              disproportionately affect low income households. Others say industries may simply pass
+              costs to consumers while continuing to pollute, or that carbon prices are too low to
+              create deep decarbonization. Political backlash in some countries is often cited as
+              evidence that carbon pricing is unstable.
+            </p>
+            <p class="muted">
+              These concerns highlight real risks. Poorly designed policies can cause hardship or
+              fail to cut emissions quickly enough.
+            </p>
+          </div>
 
-    <div class="card">
-        Strong climate action happens when groups collaborate. Carbon pricing is not a distant idea. 
-        It is already working around the world, and scaling it can accelerate global progress.
-    </div>
-</div>
+          <div>
+            <h3>Rebuttal: Strong design addresses these problems</h3>
+            <p>
+              Research shows that these weaknesses are not built into carbon pricing itself but stem
+              from weak policy design. Returning revenue to households through dividends or tax cuts
+              can fully offset the financial burden for low and middle income families. This turns a
+              climate policy into an economic fairness policy.
+            </p>
+            <p>
+              The Nature Communications study also confirms that even modest carbon prices reduce
+              emissions when implemented properly. Prices can rise predictably over time, and
+              pairing carbon pricing with regulations and clean energy investments strengthens the
+              overall transition. The solution is not to abandon carbon pricing, but to design it
+              responsibly.
+            </p>
+          </div>
+        </div>
 
-<footer>
-    Created by: Ahmet Alpay, Hilmi Tombak, and Rayan Zubair  
-    <br>AP Lang Synthesis Project
-</footer>
+        <div class="highlight-box">
+          <strong>Bottom line:</strong>
+          The shortcomings that critics identify are not inherent flaws. They are design choices. A
+          well built carbon pricing system protects vulnerable communities, prevents emissions
+          leakage, and works alongside other climate tools to speed up the clean energy transition.
+        </div>
+      </section>
 
+      <section id="action" class="cta">
+        <div class="cta-inner">
+          <div>
+            <div class="cta-pill">What can individuals and communities do?</div>
+            <h2>Turning a technical policy into a real change</h2>
+            <p>
+              Carbon pricing can seem abstract, but its outcomes depend on public engagement.
+              Students, families, and communities can support fair policy design by learning how
+              carbon pricing works, asking how revenue is used, and backing proposals that combine
+              climate action with economic fairness.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <p>
+              • Learn how carbon pricing works in your state or region and whether revenue supports
+              vulnerable households or clean energy projects.  
+              • Support proposals that use visible dividends or public investments so communities
+              feel real benefits.  
+              • Join climate groups that advocate for evidence based policy design.  
+              • Use your voice in school, community events, and future voting to support policies
+              that reduce emissions while protecting people.
+            </p>
+            <p class="muted">
+              Climate change requires multiple solutions. Fair carbon pricing is one of the clearest
+              tools for reducing emissions while supporting communities that are most affected by
+              climate impacts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="works-cited" class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Works Cited</h2>
+          <span class="section-tag">Sources</span>
+        </div>
+        <ul class="works-list">
+          <li>
+            Dobbeling-Hildebrandt, Niklas, et al. "Systematic review and meta analysis of ex post
+            evaluations on the effectiveness of carbon pricing." <em>Nature Communications</em>,
+            vol. 15, 2024.
+          </li>
+          <li>
+            World Bank. "State and Trends of Carbon Pricing 2023" and press release "Record High
+            Revenues From Global Carbon Pricing Near 100 Billion," 23 May 2023.
+          </li>
+          <li>
+            Metcalf, Gilbert. <em>Paying for Pollution: Why a Carbon Tax is Good for America.</em>
+          </li>
+          <li>
+            CAPABLE Project. "Effectiveness of different carbon pricing schemes." Project summary,
+            2024.
+          </li>
+          <li>
+            Kumar, Kavya. "Cap and Trade vs Carbon Tax." Schar School of Policy and Government,
+            George Mason University.
+          </li>
+          <li>
+            Resources from Brookings Institution, C2ES, MIT Climate Portal, RFF, and Stanford
+            University on carbon pricing basics and the social cost of carbon.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      Created by Ahmet Alpay, Hilmi Tombak, and Rayan Zubair — AP Lang Synthesis Project
+    </footer>
+  </div>
 </body>
 </html>
